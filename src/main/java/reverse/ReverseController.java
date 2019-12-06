@@ -2,18 +2,21 @@ package reverse;
 
 import java.util.concurrent.atomic.AtomicLong;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class ReverseController {
 
-	private static final String template = "Hello, %s!";
-	private final AtomicLong counter = new AtomicLong();
+	private static final String default_string = "Empty string given. Try /reverse/{word}";
 
-	@RequestMapping("/reverse")
-	public Reverse reverse(@RequestParam(value="name", defaultValue="World") String name) {
-		return new Reverse(counter.incrementAndGet(),
-							String.format(template, name));
-	}
+	@RequestMapping(path="/reverse/{word}")
+	public String reverse(@PathVariable("word") String word) {
+		return word;
+		}
+
+	@RequestMapping(path="/")
+	public String empty() {
+		return default_string;
+		}
 }
