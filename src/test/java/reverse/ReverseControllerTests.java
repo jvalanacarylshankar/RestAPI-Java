@@ -16,6 +16,6 @@ public class ReverseControllerTests {
 	public void reversedMessage() throws Exception {
 		ReverseController reverseController = new ReverseController();
         String result = reverseController.reverse("test-string");
-        assertEquals(result, "test-string");
+        assertEquals(result, "gnirts-tset");
 	}
 }

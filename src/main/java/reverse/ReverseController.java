@@ -12,7 +12,11 @@ public class ReverseController {
 
 	@RequestMapping(path="/reverse/{word}")
 	public String reverse(@PathVariable("word") String word) {
-		return word;
+		String reverse_word = "";
+		for (int i = word.length() - 1; i >= 0; i--) {
+            reverse_word = reverse_word + word.charAt(i);
+			}
+		return reverse_word;
 		}
 
 	@RequestMapping(path="/")
