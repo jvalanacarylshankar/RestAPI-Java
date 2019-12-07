@@ -10,6 +10,7 @@ public class ReverseController {
 
 	private static final String default_string = "Empty string given. Try /reverse/{word}";
 
+	// Mapping for /reverse
 	@RequestMapping(path="/reverse/{word}")
 	public String reverse(@PathVariable("word") String word) {
 		String reverse_word = "";
@@ -19,8 +20,14 @@ public class ReverseController {
 		return reverse_word;
 		}
 
+	// Mapping for empty path
 	@RequestMapping(path="/")
 	public String empty() {
 		return default_string;
 		}
 }
+
+/* Reasoning for not abstracting the reverse functionality into another class:
+- I feel the function is quite simple and did not require an additional class to store this functionality.
+- However, if there were more paths, each of which had something to do with strings, I would create a new class and abstract that functionality into it.
+*/
