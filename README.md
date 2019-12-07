@@ -5,5 +5,5 @@ Rest API using Java and Spring Boot which has the following contract: GET /rever
 ```
 brew install maven
 mvn install
-mvn sprint-boot::run
+mvn spring-boot::run
 ```
